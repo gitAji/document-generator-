@@ -89,45 +89,29 @@ function YoutubeContentGenerator() {
     const titleWords = titleLower.split(' ');
 
     // Enhanced simulated AI generation for description
-    let description = `[Video Title] | ${channelName || '[Your Channel Name]'}
+    let description = `${videoTitle} | ${channelName || 'Your Channel Name'}
 
-Welcome to ${channelName || '[Your Channel Name]'}! In this video, we’ll dive deep into **${videoTitle}**. Discover how to [action verb related to title] and unlock the secrets to [benefit related to title]. Whether you're a beginner or an expert, this guide will help you [achieve goal related to title].
+Welcome to ${channelName || 'Our Channel'}! In this video, we’ll dive deep into **${videoTitle}**. Learn about ${titleWords[0] || 'this topic'} and discover key insights into ${titleWords[1] || 'its applications'}. This guide will help you understand ${videoTitle} better.
 
-What You’ll Learn:
-- The core concepts of ${titleWords[0] || 'your topic'}
-- Practical strategies for ${titleWords[1] || 'effective implementation'}
-- Common pitfalls to avoid and how to overcome them
+Key Takeaways:
+- Understanding the basics of ${titleWords[0] || 'the subject'}
+- Exploring advanced concepts in ${titleWords[1] || 'the field'}
+- Practical tips for ${titleWords[2] || 'implementation'}
 
-Timestamps:
-00:00 - Introduction  
-00:45 - [First Key Point]  
-02:30 - [Second Key Point]  
-05:00 - [Advanced Tip or Case Study]  
-07:15 - Conclusion  
-
-Related Videos:
-▶️ [Related Video 1 Title]: [URL]  
-▶️ [Related Video 2 Title]: [URL]  
-
-Download / Resources:
-[Link to free guide, tools, or files if applicable]
-
-Let us know your thoughts in the comments below!
-👍 Like this video if it helped you
-🔔 Subscribe for more: [Your Channel Link]
+For more content like this, subscribe to our channel!
 
 `;
 
     // Enhanced simulated AI generation for keywords
     const baseKeywords = titleWords.join(', ');
     const additionalKeywords = [
-      `how to ${titleLower}`,
-      `tutorial ${titleLower}`,
-      `guide ${titleLower}`,
-      `best ${titleWords[0] || 'topic'}`,
-      `learn ${titleWords[1] || 'skill'}`,
-      `youtube seo`,
-      `content creation`,
+      `${videoTitle} tutorial`,
+      `${videoTitle} guide`,
+      `${videoTitle} explained`,
+      `${titleWords[0]} tips`,
+      `${titleWords[1]} strategies`,
+      `youtube content`,
+      `video creation`,
     ].filter(Boolean).join(', ');
 
     const hashtags = titleWords.map(word => `#${word}`).join(' ');

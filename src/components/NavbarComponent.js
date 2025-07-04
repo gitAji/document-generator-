@@ -6,7 +6,7 @@ function NavbarComponent() {
   return (
     <Navbar bg="light" variant="light" expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand as={Link} to="/" style={{ color: '#333' }}>Voice Document Generator</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" style={{ color: '#333' }}>Documents Generator</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

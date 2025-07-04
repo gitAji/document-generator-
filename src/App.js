@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavbarComponent from './components/NavbarComponent';
+import FooterComponent from './components/FooterComponent';
+import Home from './components/Home';
 import SpeakToWrite from './components/SpeakToWrite';
 import DocumentUploadEditor from './components/DocumentUploadEditor';
 import YoutubeContentGenerator from './components/YoutubeContentGenerator';
@@ -11,12 +13,15 @@ function App() {
   return (
     <Router>
       <NavbarComponent />
-      <Routes>
-        <Route path="/" element={<YoutubeContentGenerator />} />
-        <Route path="/speak-to-write" element={<SpeakToWrite />} />
-        <Route path="/upload-edit" element={<DocumentUploadEditor />} />
-        <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
-      </Routes>
+      <div className="content-wrap">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/speak-to-write" element={<SpeakToWrite />} />
+          <Route path="/upload-edit" element={<DocumentUploadEditor />} />
+          <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
+        </Routes>
+      </div>
+      <FooterComponent />
     </Router>
   );
 }

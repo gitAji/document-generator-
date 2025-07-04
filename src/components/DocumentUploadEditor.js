@@ -6,6 +6,9 @@ import mammoth from 'mammoth';
 import { saveAs } from 'file-saver';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import * as pdfjsLib from 'pdfjs-dist';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 function DocumentUploadEditor() {
   const [editorContent, setEditorContent] = useState('');
@@ -35,8 +38,19 @@ function DocumentUploadEditor() {
       } else if (file.name.endsWith('.txt')) {
         const textContent = new TextDecoder('utf-8').decode(arrayBuffer);
         setEditorContent(textContent);
+      } else if (file.type === 'application/pdf') {
+        const pdfData = new Uint8Array(arrayBuffer);
+        const loadingTask = pdfjsLib.getDocument({ data: pdfData });
+        const pdf = await loadingTask.promise;
+        let fullText = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const textContent = await page.getTextContent();
+          fullText += textContent.items.map(item => item.str).join(' ') + '\n';
+        }
+        setEditorContent(fullText);
       } else {
-        alert('Unsupported file type. Please upload a .docx or .txt file.');
+        alert('Unsupported file type. Please upload a .docx, .txt, or .pdf file.');
         setEditorContent('');
       }
     };
@@ -102,8 +116,8 @@ function DocumentUploadEditor() {
     <Container className="mt-4">
       <h2 className="mb-3">Upload & Edit Document</h2>
       <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Upload .docx or .txt file</Form.Label>
-        <Form.Control type="file" accept=".docx,.txt" onChange={handleFileUpload} />
+        <Form.Label>Upload .docx, .txt or .pdf file</Form.Label>
+        <Form.Control type="file" accept=".docx,.txt,.pdf" onChange={handleFileUpload} />
       </Form.Group>
 
       {fileName && <p>Editing: {fileName}</p>}
@@ -122,13 +136,13 @@ function DocumentUploadEditor() {
       </div>
 
       <div className="mb-3 mt-5">
-        <Button variant="info" className="me-2" onClick={() => handleExport('txt')}>
+        <Button variant="primary" className="me-2" onClick={() => handleExport('txt')}>
           Export as .txt
         </Button>
-        <Button variant="info" className="me-2" onClick={() => handleExport('pdf')}>
+        <Button variant="primary" className="me-2" onClick={() => handleExport('pdf')}>
           Export as .pdf
         </Button>
-        <Button variant="info" onClick={() => handleExport('docx')}>
+        <Button variant="secondary" onClick={() => handleExport('docx')}>
           Export as .docx (Basic) 
         </Button>
       </div>

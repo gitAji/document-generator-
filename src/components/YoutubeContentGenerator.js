@@ -27,11 +27,7 @@ function YoutubeContentGenerator() {
   const [generatedDescription, setGeneratedDescription] = useState('');
   const [generatedKeywords, setGeneratedKeywords] = useState('');
   const [channelName, setChannelName] = useState('');
-  const [instagramHandle, setInstagramHandle] = useState('');
-  const [twitterHandle, setTwitterHandle] = useState('');
-  const [website, setWebsite] = useState('');
-  const [channelLink, setChannelLink] = useState('');
-  const [businessEmail, setBusinessEmail] = useState('');
+  
   const [thumbnailImage, setThumbnailImage] = useState(null);
   const [thumbnailText, setThumbnailText] = useState('');
   const [thumbnailMode, setThumbnailMode] = useState('manual'); // 'manual' or 'ai-generated'
@@ -51,7 +47,7 @@ function YoutubeContentGenerator() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'api-key': 'd803dfca-5f90-436b-8aa3-3ff83460817a', // Replace with your actual API key
+          'api-key': '6e06e783-78cc-4b0b-a5db-a5d8ae8ff64a', // Replace with your actual API key
         },
         body: JSON.stringify({ text: title }),
       });
@@ -164,15 +160,7 @@ Download / Resources:
 
 Let us know your thoughts in the comments below!
 👍 Like this video if it helped you
-🔔 Subscribe for more: ${channelLink || '[Your Channel Link]'}
-
-Follow Me On:
-Instagram: ${instagramHandle ? `@${instagramHandle}` : '[@yourhandle]'}  
-Twitter: ${twitterHandle ? `@${twitterHandle}` : '[@yourhandle]'}  
-Website: ${website || '[yourwebsite.com]'}
-
-Business Inquiries:
-${businessEmail || '[Your Email Address]'}
+🔔 Subscribe for more: [Your Channel Link]
 
 `;
 
@@ -196,7 +184,7 @@ ${hashtags}`;
     setGeneratedDescription(description);
     setGeneratedKeywords(`${baseKeywords}, ${additionalKeywords}`);
 
-    // generateAiImage(videoTitle);
+    generateAiImage(videoTitle);
 
     // AI thumbnail generation based on title
     const getTitleHash = (title) => {
@@ -372,39 +360,18 @@ ${hashtags}`;
         </Col>
       </Row>
 
-      <hr className="my-4" />
-
-      <h4>Channel Details (Optional)</h4>
       <Row className="mb-3">
         <Col md={6}>
           <Form.Group className="mb-3">
             <Form.Label>Channel Name</Form.Label>
             <Form.Control type="text" value={channelName} onChange={(e) => setChannelName(e.target.value)} placeholder="Your Channel Name" />
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Channel Link</Form.Label>
-            <Form.Control type="text" value={channelLink} onChange={(e) => setChannelLink(e.target.value)} placeholder="e.g., youtube.com/yourchannel" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Instagram Handle</Form.Label>
-            <Form.Control type="text" value={instagramHandle} onChange={(e) => setInstagramHandle(e.target.value)} placeholder="@yourhandle" />
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Form.Group className="mb-3">
-            <Form.Label>Twitter Handle</Form.Label>
-            <Form.Control type="text" value={twitterHandle} onChange={(e) => setTwitterHandle(e.target.value)} placeholder="@yourhandle" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Website</Form.Label>
-            <Form.Control type="text" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="yourwebsite.com" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Business Email</Form.Label>
-            <Form.Control type="email" value={businessEmail} onChange={(e) => setBusinessEmail(e.target.value)} placeholder="youremail@example.com" />
-          </Form.Group>
         </Col>
       </Row>
+
+      <hr className="my-4" />
+
+      
 
       <Button onClick={generateContent} className="mb-4" disabled={!videoTitle}>
         Generate YouTube Content

@@ -1,15 +1,15 @@
-import React, { useState, useRef } from 'react';
-import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
-import { saveAs } from 'file-saver';
+import React, { useState, useRef } from "react";
+import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
+import { saveAs } from "file-saver";
 
 function ImageResizer() {
   const [imageFile, setImageFile] = useState(null);
-  const [width, setWidth] = useState('');
-  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
   const [aspectRatioLocked, setAspectRatioLocked] = useState(true);
   const [originalWidth, setOriginalWidth] = useState(0);
   const [originalHeight, setOriginalHeight] = useState(0);
-  const imageRef = useRef(null);
+  const [resizedImageUrl, setResizedImageUrl] = useState(null); // ✅ Fix 1
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -27,6 +27,7 @@ function ImageResizer() {
         img.src = e.target.result;
       };
       reader.readAsDataURL(file);
+      setResizedImageUrl(null); // Reset preview when new image is uploaded
     }
   };
 
@@ -38,7 +39,7 @@ function ImageResizer() {
         setHeight(Math.round(newWidth * (originalHeight / originalWidth)));
       }
     } else {
-      setWidth('');
+      setWidth("");
     }
   };
 
@@ -50,25 +51,31 @@ function ImageResizer() {
         setWidth(Math.round(newHeight * (originalWidth / originalHeight)));
       }
     } else {
-      setHeight('');
+      setHeight("");
     }
   };
 
   const handleResizeAndDownload = () => {
     if (!imageFile || !width || !height) {
-      alert('Please upload an image and enter dimensions.');
+      alert("Please upload an image and enter valid dimensions.");
       return;
     }
 
-    const canvas = document.createElement('canvas');
+    const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     const img = new Image();
     img.src = URL.createObjectURL(imageFile);
     img.onload = () => {
       ctx.drawImage(img, 0, 0, width, height);
+
+      // Update preview
+      const dataUrl = canvas.toDataURL(imageFile.type);
+      setResizedImageUrl(dataUrl); // ✅ Fix 2
+
+      // Download
       canvas.toBlob((blob) => {
         saveAs(blob, `resized_${imageFile.name}`);
       }, imageFile.type);
@@ -84,24 +91,40 @@ function ImageResizer() {
             <Form>
               <Form.Group controlId="imageUpload" className="mb-3">
                 <Form.Label>Upload Image</Form.Label>
-                <Form.Control type="file" accept="image/*" onChange={handleImageUpload} />
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
               </Form.Group>
 
               {imageFile && (
                 <>
                   <Form.Group className="mb-3">
                     <Form.Label>Original Dimensions</Form.Label>
-                    <Form.Control type="text" value={`${originalWidth} x ${originalHeight}`} readOnly />
+                    <Form.Control
+                      type="text"
+                      value={`${originalWidth} x ${originalHeight}`}
+                      readOnly
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label>Width</Form.Label>
-                    <Form.Control type="number" value={width} onChange={handleWidthChange} />
+                    <Form.Control
+                      type="number"
+                      value={width}
+                      onChange={handleWidthChange}
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label>Height</Form.Label>
-                    <Form.Control type="number" value={height} onChange={handleHeightChange} />
+                    <Form.Control
+                      type="number"
+                      value={height}
+                      onChange={handleHeightChange}
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
@@ -121,12 +144,22 @@ function ImageResizer() {
             </Form>
           </Card>
         </Col>
+
         <Col md={6}>
           {imageFile && (
             <Card className="shadow-sm mt-3 mt-md-0">
               <Card.Body className="text-center">
                 <Card.Title>Preview</Card.Title>
-                <img ref={imageRef} src={URL.createObjectURL(imageFile)} alt="Preview" className="img-fluid" style={{ maxWidth: '100%', maxHeight: '400px' }} />
+                <img
+                  src={
+                    resizedImageUrl
+                      ? resizedImageUrl
+                      : URL.createObjectURL(imageFile)
+                  }
+                  alt="Preview"
+                  className="img-fluid"
+                  style={{ maxWidth: "100%", maxHeight: "400px" }}
+                />
               </Card.Body>
             </Card>
           )}

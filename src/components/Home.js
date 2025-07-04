@@ -5,17 +5,16 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className="home-page">
-      {/* Hero Section */}
       <section className="hero-section text-center py-5" style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', minHeight: '500px', display: 'flex', alignItems: 'center', backgroundImage: 'url(%PUBLIC_URL%/hero.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <Container>
-          <h1>Welcome to Documents Generator</h1>
-          <p className="lead">Your all-in-one solution for document creation, voice-to-text, and content generation.</p>
-          <Button variant="secondary" size="lg" as={Link} to="/speak-to-write">Get Started</Button>
+          <h1 className="display-4 fw-bold">Your Creative Toolkit for Digital Content</h1>
+          <p className="lead mb-4">Streamline your workflow with powerful tools for document creation, content generation, and media editing.</p>
+          <Button variant="secondary" size="lg" onClick={() => document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })}>Explore Our Services</Button>
         </Container>
       </section>
 
       {/* Services Section */}
-      <section className="services-section py-5" style={{ backgroundColor: 'var(--background-color)' }}>
+      <section id="services-section" className="services-section py-5" style={{ backgroundColor: 'var(--background-color)' }}>
         <Container>
           <h2 className="text-center mb-4" style={{ color: 'var(--text-color)' }}>Our Services</h2>
           <Row className="g-4">

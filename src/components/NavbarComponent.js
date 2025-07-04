@@ -39,7 +39,7 @@ function NavbarComponent() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="https://buymeacoffee.com/aone.no" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white ms-lg-3">
+            <Nav.Link href="https://buymeacoffee.com/aone.no" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light ms-lg-3">
               Buy me a Coffee
             </Nav.Link>
           </Nav>

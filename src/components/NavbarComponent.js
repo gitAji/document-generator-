@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 function NavbarComponent() {
   return (
-    <Navbar bg="light" variant="light" expand="lg" className="shadow-sm">
+    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm" style={{ backgroundColor: '#3700B3' }}>
       <Container>
-        <Navbar.Brand as={Link} to="/" style={{ color: '#333' }}>Documents Generator</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" style={{ color: '#FFFFFF', fontWeight: 'bold' }}>DocGen</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/youtube-generator" style={{ color: '#555' }}>
+            <Nav.Link as={Link} to="/youtube-generator" style={{ color: '#E0E0E0' }}>
               YouTube Content Generator
             </Nav.Link>
-            <Nav.Link as={Link} to="/speak-to-write" style={{ color: '#555' }}>
+            <Nav.Link as={Link} to="/speak-to-write" style={{ color: '#E0E0E0' }}>
               Speak to Write
             </Nav.Link>
-            <Nav.Link as={Link} to="/upload-edit" style={{ color: '#555' }}>
+            <Nav.Link as={Link} to="/upload-edit" style={{ color: '#E0E0E0' }}>
               Upload & Edit Document
             </Nav.Link>
           </Nav>

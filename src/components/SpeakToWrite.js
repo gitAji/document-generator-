@@ -168,7 +168,7 @@ function SpeakToWrite() {
 
         {documentType !== 'Others' && templates[documentType] && (
           <Dropdown className="me-2">
-            <Dropdown.Toggle variant="outline-primary" id="dropdown-template">
+            <Dropdown.Toggle variant="secondary" id="dropdown-template">
               Select Template
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -188,8 +188,9 @@ function SpeakToWrite() {
           variant={isListening ? 'danger' : 'primary'}
           onClick={handleSpeakToggle}
           disabled={!isSpeechRecognitionReady}
+          className="d-flex align-items-center"
         >
-          {isListening ? <FaStop /> : <FaMicrophone />}
+          {isListening ? <><FaStop className="me-2" /> Stop Speaking</> : <><FaMicrophone className="me-2" /> Speak to Write</>}
         </Button>
       </div>
 

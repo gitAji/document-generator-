@@ -3,16 +3,16 @@
 }
 
 .App-header {
-  background-color: #ffffff; /* White header */
+  background-color: #F5F5F5; /* Light Gray Background */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #333333; /* Dark gray text */
+  color: #212121; /* Dark Gray Text */
 }
 
 .App-link {
-  color: #007bff; /* Blue link */
+  color: #6200EE; /* Deep Purple */
 }

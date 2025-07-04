@@ -272,7 +272,7 @@ ${hashtags}`;
                 className="me-2"
               />
               <Button
-                variant={isListening ? 'danger' : 'outline-primary'}
+                variant={isListening ? 'danger' : 'primary'}
                 onClick={handleSpeakToggle}
                 disabled={!isSpeechRecognitionReady}
               >
@@ -308,10 +308,10 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="outline-primary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
+          <Button variant="primary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
             Copy Description
           </Button>
-          <Button variant="outline-info" size="sm" className="ms-2" onClick={() => handleExport(generatedDescription, 'description')}>
+          <Button variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedDescription, 'description')}>
             Export Description (.txt)
           </Button>
         </div>
@@ -327,10 +327,10 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="outline-primary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
+          <Button variant="primary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
             Copy Keywords
           </Button>
-          <Button variant="outline-info" size="sm" className="ms-2" onClick={() => handleExport(generatedKeywords, 'keywords')}>
+          <Button variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedKeywords, 'keywords')}>
             Export Keywords (.txt)
           </Button>
         </div>

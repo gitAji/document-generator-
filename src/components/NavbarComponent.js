@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaCoffee } from 'react-icons/fa';
 
 function NavbarComponent() {
   return (
@@ -40,7 +41,7 @@ function NavbarComponent() {
           </Nav>
           <Nav>
             <Nav.Link href="https://buymeacoffee.com/aone.no" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light ms-lg-3">
-              Buy me a Coffee
+              <FaCoffee className="me-2" /> Buy me a Coffee
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

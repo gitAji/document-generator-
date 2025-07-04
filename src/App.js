@@ -20,24 +20,26 @@ import './App.css'; // Keep App.css for general styling if needed
 function App() {
   return (
     <Router>
-      <NavbarComponent />
-      <div className="content-wrap">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/speak-to-write" element={<SpeakToWrite />} />
-          <Route path="/upload-edit" element={<DocumentUploadEditor />} />
-          <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/favicon-tool" element={<FaviconTool />} />
-          <Route path="/image-resizer" element={<ImageResizer />} />
-          <Route path="/audio-trimmer" element={<AudioTrimmer />} />
-          <Route path="/quote-maker" element={<QuoteMaker />} />
-          <Route path="/youtube-thumbnail-analyzer" element={<YoutubeThumbnailAnalyzer />} />
-          <Route path="/engagement-rate-calculator" element={<EngagementRateCalculator />} />
-        </Routes>
+      <div className="d-flex flex-column min-vh-100"> {/* Added flexbox classes */}
+        <NavbarComponent />
+        <div className="flex-grow-1"> {/* This will push the footer down */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/speak-to-write" element={<SpeakToWrite />} />
+            <Route path="/upload-edit" element={<DocumentUploadEditor />} />
+            <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/favicon-tool" element={<FaviconTool />} />
+            <Route path="/image-resizer" element={<ImageResizer />} />
+            <Route path="/audio-trimmer" element={<AudioTrimmer />} />
+            <Route path="/quote-maker" element={<QuoteMaker />} />
+            <Route path="/youtube-thumbnail-analyzer" element={<YoutubeThumbnailAnalyzer />} />
+            <Route path="/engagement-rate-calculator" element={<EngagementRateCalculator />} />
+          </Routes>
+        </div>
+        <FooterComponent />
       </div>
-      <FooterComponent />
     </Router>
   );
 }

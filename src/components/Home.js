@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className="home-page">
-      <section className="hero-section text-center py-5" style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', minHeight: '500px', display: 'flex', alignItems: 'center', backgroundImage: 'url(%PUBLIC_URL%/hero.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="hero-section text-center py-5" style={{ color: 'var(--background-color)', minHeight: '500px', display: 'flex', alignItems: 'center', backgroundImage: 'url(%PUBLIC_URL%/hero.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: 'var(--primary-color)' }}>
         <Container>
           <h1 className="display-4 fw-bold">Your Creative Toolkit for Digital Content</h1>
           <p className="lead mb-4">Streamline your workflow with powerful tools for document creation, content generation, and media editing.</p>

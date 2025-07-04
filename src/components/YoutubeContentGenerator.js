@@ -33,39 +33,7 @@ function YoutubeContentGenerator() {
   const [thumbnailMode, setThumbnailMode] = useState('manual'); // 'manual' or 'ai-generated'
   const [aiThumbnailBackground, setAiThumbnailBackground] = useState('');
   const [aiThumbnailTextColor, setAiThumbnailTextColor] = useState('#333');
-  const [aiGeneratedImageUrl, setAiGeneratedImageUrl] = useState('');
-  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
-
-  const generateAiImage = async (title) => {
-    if (!title) return;
-
-    setIsGeneratingImage(true);
-    setAiGeneratedImageUrl(''); // Clear previous image
-
-    try {
-      const response = await fetch('https://api.deepai.org/api/text2img', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': '6e06e783-78cc-4b0b-a5db-a5d8ae8ff64a', // Replace with your actual API key
-        },
-        body: JSON.stringify({ text: title }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.err}`);
-      }
-
-      const data = await response.json();
-      setAiGeneratedImageUrl(data.output_url);
-    } catch (error) {
-      console.error("Error generating AI image:", error);
-      alert(`Failed to generate AI image. Please check your API key and try again. Details: ${error.message}`);
-    } finally {
-      setIsGeneratingImage(false);
-    }
-  };
+  
   const thumbnailQuillRef = useRef(null);
 
   const recognitionRef = useRef(null);
@@ -184,7 +152,7 @@ ${hashtags}`;
     setGeneratedDescription(description);
     setGeneratedKeywords(`${baseKeywords}, ${additionalKeywords}`);
 
-    generateAiImage(videoTitle);
+    
 
     // AI thumbnail generation based on title
     const getTitleHash = (title) => {
@@ -488,7 +456,7 @@ ${hashtags}`;
         <div className="mb-4 p-3 border rounded" style={{
           width: '1280px',
           height: '720px',
-          background: aiGeneratedImageUrl ? `url(${aiGeneratedImageUrl})` : aiThumbnailBackground,
+          background: aiThumbnailBackground,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative',
@@ -498,18 +466,13 @@ ${hashtags}`;
           justifyContent: 'center',
           fontFamily: 'Montserrat, sans-serif',
         }} id="ai-thumbnail-preview">
-          {isGeneratingImage && (
-            <div style={{ textAlign: 'center', color: '#fff', background: 'rgba(0,0,0,0.5)', padding: '20px', borderRadius: '10px' }}>
-              <h2>Generating AI Image...</h2>
-            </div>
-          )}
           <div style={{
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=)',
+            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5wMy5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=)',
             opacity: 0.05,
           }}></div>
           <div style={{
@@ -520,7 +483,6 @@ ${hashtags}`;
             padding: '40px',
             borderRadius: '15px',
             maxWidth: '90%',
-            visibility: isGeneratingImage ? 'hidden' : 'visible',
           }}>
             <h1 style={{ fontSize: '80px', fontWeight: 700, marginBottom: '20px' }}>{videoTitle || 'AI Generated Title'}</h1>
             <p style={{ fontSize: '40px', fontWeight: 400 }}>{generatedKeywords.split(',').slice(0, 3).join(' | ') || 'AI | Generated | Keywords'}</p>

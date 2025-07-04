@@ -208,10 +208,10 @@ function SpeakToWrite() {
       </div>
 
       <div className="mb-3 mt-5">
-        <Button variant="primary" className="me-2" onClick={() => handleExport('txt')}>
+        <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" className="me-2" onClick={() => handleExport('txt')}>
           Export as .txt
         </Button>
-        <Button variant="primary" onClick={() => handleExport('pdf')}>
+        <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" onClick={() => handleExport('pdf')}>
           Export as .pdf
         </Button>
       </div>

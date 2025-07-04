@@ -48,7 +48,7 @@ function Home() {
                   <Card.Text style={{ color: 'var(--text-color)' }}>
                     Upload PDF or other documents and edit them like a word processor.
                   </Card.Text>
-                  <Button variant="primary" as={Link} to="/upload-edit" className="mt-auto">Go to Service</Button>
+                  <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" as={Link} to="/upload-edit" className="mt-auto">Go to Service</Button>
                 </Card.Body>
               </Card>
             </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function NavbarComponent() {
@@ -12,17 +12,35 @@ function NavbarComponent() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/youtube-generator" style={{ color: 'var(--text-color)' }}>
-              YouTube Content Generator
-            </Nav.Link>
-            <Nav.Link as={Link} to="/speak-to-write" style={{ color: 'var(--text-color)' }}>
-              Speak to Write
-            </Nav.Link>
-            <Nav.Link as={Link} to="/upload-edit" style={{ color: 'var(--text-color)' }}>
-              Upload & Edit Document
-            </Nav.Link>
-            <Nav.Link as={Link} to="/favicon-tool" style={{ color: 'var(--text-color)' }}>
-              Favicon Tool
+            {/* Document Services */}
+            <NavDropdown title="Document Tools" id="document-tools-dropdown" menuVariant="light">
+              <NavDropdown.Item as={Link} to="/speak-to-write">Speak to Write</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/upload-edit">Upload & Edit Document</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to="/quote-maker">Quote Maker / Typography Designer</NavDropdown.Item>
+            </NavDropdown>
+
+            {/* Image Services */}
+            <NavDropdown title="Image Tools" id="image-tools-dropdown" menuVariant="light">
+              <NavDropdown.Item as={Link} to="/image-resizer">Image Resizer</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/favicon-tool">Favicon Tool</NavDropdown.Item>
+            </NavDropdown>
+
+            {/* Video/Audio Services */}
+            <NavDropdown title="Video & Audio Tools" id="video-audio-tools-dropdown" menuVariant="light">
+              <NavDropdown.Item as={Link} to="/youtube-generator">YouTube Content Generator</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/audio-trimmer">Audio Trimmer</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/youtube-thumbnail-analyzer">YouTube Thumbnail Analyzer</NavDropdown.Item>
+            </NavDropdown>
+
+            {/* Social Media Tools */}
+            <NavDropdown title="Social Media Tools" id="social-media-tools-dropdown" menuVariant="light">
+              <NavDropdown.Item as={Link} to="/engagement-rate-calculator">Engagement Rate Calculator</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="https://buymeacoffee.com/aone.no" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white ms-lg-3">
+              Buy me a Coffee
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -9,6 +9,11 @@ import YoutubeContentGenerator from './components/YoutubeContentGenerator';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import FaviconTool from './components/FaviconTool';
+import ImageResizer from './components/ImageResizer';
+import AudioTrimmer from './components/AudioTrimmer';
+import QuoteMaker from './components/QuoteMaker';
+import YoutubeThumbnailAnalyzer from './components/YoutubeThumbnailAnalyzer';
+import EngagementRateCalculator from './components/EngagementRateCalculator';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; // Keep App.css for general styling if needed
 
@@ -25,6 +30,11 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/favicon-tool" element={<FaviconTool />} />
+          <Route path="/image-resizer" element={<ImageResizer />} />
+          <Route path="/audio-trimmer" element={<AudioTrimmer />} />
+          <Route path="/quote-maker" element={<QuoteMaker />} />
+          <Route path="/youtube-thumbnail-analyzer" element={<YoutubeThumbnailAnalyzer />} />
+          <Route path="/engagement-rate-calculator" element={<EngagementRateCalculator />} />
         </Routes>
       </div>
       <FooterComponent />

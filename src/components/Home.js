@@ -52,6 +52,72 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Image Resizer</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Resize your images quickly and efficiently for various platforms.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/image-resizer" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Audio Trimmer</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Trim and cut audio files to your desired length.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/audio-trimmer" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Quote Maker</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Design beautiful quotes with custom typography and backgrounds.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/quote-maker" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>YouTube Thumbnail Analyzer</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Analyze the effectiveness of your YouTube thumbnails.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/youtube-thumbnail-analyzer" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Engagement Rate Calculator</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Calculate your social media engagement rate.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/engagement-rate-calculator" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm">
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Favicon Tool</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Create and edit favicons from text or images.
+                  </Card.Text>
+                  <Button variant="primary" as={Link} to="/favicon-tool" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavbarComponent from './components/NavbarComponent';
+import SpeakToWrite from './components/SpeakToWrite';
+import DocumentUploadEditor from './components/DocumentUploadEditor';
+import YoutubeContentGenerator from './components/YoutubeContentGenerator';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; // Keep App.css for general styling if needed
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavbarComponent />
+      <Routes>
+        <Route path="/" element={<YoutubeContentGenerator />} />
+        <Route path="/speak-to-write" element={<SpeakToWrite />} />
+        <Route path="/upload-edit" element={<DocumentUploadEditor />} />
+        <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
+      </Routes>
+    </Router>
   );
 }
 

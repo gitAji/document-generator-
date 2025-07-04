@@ -11,7 +11,7 @@ function NavbarComponent() {
           <span className="navbar-toggler-icon" style={{ filter: 'none' }}></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto flex-grow-1">
             {/* Document Services */}
             <NavDropdown title="Document Tools" id="document-tools-dropdown" menuVariant="light">
               <NavDropdown.Item as={Link} to="/speak-to-write">Speak to Write</NavDropdown.Item>

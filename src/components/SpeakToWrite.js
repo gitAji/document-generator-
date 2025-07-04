@@ -10,19 +10,19 @@ import { FaMicrophone, FaStop } from 'react-icons/fa';
 // Dummy templates for demonstration
 const templates = {
   'CV / Resume': {
-    'Basic CV': "[Your Name]\n[Your Contact Information]\n\nSummary:\n[A brief summary of your professional experience and career goals.]\n\nExperience:\n[Job Title], [Company Name], [Dates]\n- [Responsibility 1]\n- [Responsibility 2]\n\nEducation:\n[Degree], [University Name], [Graduation Year]\n\nSkills:\n[List of relevant skills]\n",
-    'Modern Resume': "[Name Surname]\n[Phone] | [Email] | [LinkedIn]\n\nProfile\n[Concise overview of your professional background and aspirations.]\n\nWork Experience\n[Position], [Company] | [Start Date] – [End Date]\n- [Key achievement 1]\n- [Key achievement 2]\n\nEducation\n[Degree], [Institution] | [Year]\n\nSkills\n[Technical Skills], [Soft Skills]\n"
+    'Basic CV': "<p>[Your Name]</p><p>[Your Contact Information]</p><p><br></p><p><strong>Summary:</strong></p><p>[A brief summary of your professional experience and career goals.]</p><p><br></p><p><strong>Experience:</strong></p><p>[Job Title], [Company Name], [Dates]</p><ul><li>[Responsibility 1]</li><li>[Responsibility 2]</li></ul><p><br></p><p><strong>Education:</strong></p><p>[Degree], [University Name], [Graduation Year]</p><p><br></p><p><strong>Skills:</strong></p><p>[List of relevant skills]</p>",
+    'Modern Resume': "<p>[Name Surname]</p><p>[Phone] | [Email] | [LinkedIn]</p><p><br></p><p><strong>Profile</strong></p><p>[Concise overview of your professional background and aspirations.]</p><p><br></p><p><strong>Work Experience</strong></p><p>[Position], [Company] | [Start Date] – [End Date]</p><ul><li>[Key achievement 1]</li><li>[Key achievement 2]</li></ul><p><br></p><p><strong>Education</strong></p><p>[Degree], [Institution] | [Year]</p><p><br></p><p><strong>Skills</strong></p><p>[Technical Skills], [Soft Skills]</p>"
   },
   'Letter': {
-    'Formal Letter': "[Your Name]\n[Your Address]\n[Your City, Postal Code]\n[Date]\n\n[Recipient Name]\n[Recipient Address]\n[Recipient City, Postal Code]\n\nDear [Recipient Name],\n\n[Body of the letter]\n\nSincerely,\n[Your Name]\n",
-    'Informal Letter': "Hi [Recipient Name],\n\nHope you're doing well.\n\n[Body of the letter]\n\nBest,\n[Your Name]\n"
+    'Formal Letter': "<p>[Your Name]</p><p>[Your Address]</p><p>[Your City, Postal Code]</p><p>[Date]</p><p><br></p><p>[Recipient Name]</p><p>[Recipient Address]</p><p>[Recipient City, Postal Code]</p><p><br></p><p>Dear [Recipient Name],</p><p><br></p><p>[Body of the letter]</p><p><br></p><p>Sincerely,</p><p>[Your Name]</p>",
+    'Informal Letter': "<p>Hi [Recipient Name],</p><p><br></p><p>Hope you're doing well.</p><p><br></p><p>[Body of the letter]</p><p><br></p><p>Best,</p><p>[Your Name]</p>"
   },
   'Email': {
-    'Professional Email': "Subject: [Your Subject]\n\nDear [Recipient Name],\n\n[Body of the email]\n\nRegards,\n[Your Name]\n",
-    'Casual Email': "Subject: [Your Subject]\n\nHey [Recipient Name],\n\n[Body of the email]\n\nTalk soon,\n[Your Name]\n"
+    'Professional Email': "<p><strong>Subject:</strong> [Your Subject]</p><p><br></p><p>Dear [Recipient Name],</p><p><br></p><p>[Body of the email]</p><p><br></p><p>Regards,</p><p>[Your Name]</p>",
+    'Casual Email': "<p><strong>Subject:</strong> [Your Subject]</p><p><br></p><p>Hey [Recipient Name],</p><p><br></p><p>[Body of the email]</p><p><br></p><p>Talk soon,</p><p>[Your Name]</p>"
   },
   'Report': {
-    'Standard Report': "Title: [Report Title]\nDate: [Date]\nAuthor: [Author Name]\n\nIntroduction:\n[Brief introduction to the report.]\n\nBody:\n[Main content of the report.]\n\nConclusion:\n[Summary and concluding remarks.]\n"
+    'Standard Report': "<p><strong>Title:</strong> [Report Title]</p><p><strong>Date:</strong> [Date]</p><p><strong>Author:</strong> [Author Name]</p><p><br></p><p><strong>Introduction:</strong></p><p>[Brief introduction to the report.]</p><p><br></p><p><strong>Body:</strong></p><p>[Main content of the report.]</p><p><br></p><p><strong>Conclusion:</strong></p><p>[Summary and concluding remarks.]</p>"
   },
   'Others': {
     'Blank Document': ""

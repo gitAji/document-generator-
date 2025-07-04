@@ -12,6 +12,10 @@ import pdfToText from 'react-pdftotext';
 
 
 
+
+
+
+
 function DocumentUploadEditor() {
   const [editorContent, setEditorContent] = useState('');
   const [fileName, setFileName] = useState('');

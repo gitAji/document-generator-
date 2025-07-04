@@ -56,18 +56,43 @@ function Home() {
         </Container>
       </section>
 
-      {/* Other Section */}
-      <section className="other-section py-5" style={{ backgroundColor: 'var(--secondary-color)', color: 'var(--background-color)' }}>
+      {/* Why Choose Us Section */}
+      <section className="why-choose-us-section py-5" style={{ backgroundColor: 'var(--background-color)' }}>
         <Container>
-          <h2 className="text-center mb-4" style={{ color: 'var(--background-color)' }}>Why Choose Us?</h2>
-          <Row>
-            <Col md={6}>
-              <h3>Efficiency</h3>
-              <p>Streamline your content creation and document management workflows.</p>
+          <h2 className="text-center mb-5" style={{ color: 'var(--primary-color)' }}>Why Choose Us?</h2>
+          <Row className="g-4 justify-content-center">
+            <Col md={4}>
+              <Card className="h-100 text-center shadow-sm p-3">
+                <Card.Body>
+                  <i className="bi bi-lightning-charge-fill" style={{ fontSize: '3rem', color: 'var(--primary-color)' }}></i>
+                  <Card.Title className="mt-3" style={{ color: 'var(--text-color)' }}>Efficiency</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Streamline your content creation and document management workflows with our intuitive tools.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
-            <Col md={6}>
-              <h3>Innovation</h3>
-              <p>Leverage AI-powered tools for smart content generation and editing.</p>
+            <Col md={4}>
+              <Card className="h-100 text-center shadow-sm p-3">
+                <Card.Body>
+                  <i className="bi bi-lightbulb-fill" style={{ fontSize: '3rem', color: 'var(--primary-color)' }}></i>
+                  <Card.Title className="mt-3" style={{ color: 'var(--text-color)' }}>Innovation</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Leverage cutting-edge AI-powered features for smart content generation and editing.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 text-center shadow-sm p-3">
+                <Card.Body>
+                  <i className="bi bi-shield-check-fill" style={{ fontSize: '3rem', color: 'var(--primary-color)' }}></i>
+                  <Card.Title className="mt-3" style={{ color: 'var(--text-color)' }}>Reliability</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Count on our robust platform for consistent performance and secure document handling.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Container>

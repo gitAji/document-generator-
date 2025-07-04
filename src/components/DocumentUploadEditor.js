@@ -39,16 +39,22 @@ function DocumentUploadEditor() {
         const textContent = new TextDecoder('utf-8').decode(arrayBuffer);
         setEditorContent(textContent);
       } else if (file.type === 'application/pdf') {
-        const pdfData = new Uint8Array(arrayBuffer);
-        const loadingTask = pdfjsLib.getDocument({ data: pdfData });
-        const pdf = await loadingTask.promise;
-        let fullText = '';
-        for (let i = 1; i <= pdf.numPages; i++) {
-          const page = await pdf.getPage(i);
-          const textContent = await page.getTextContent();
-          fullText += textContent.items.map(item => item.str).join(' ') + '\n';
+        try {
+          const pdfData = new Uint8Array(arrayBuffer);
+          const loadingTask = pdfjsLib.getDocument({ data: pdfData });
+          const pdf = await loadingTask.promise;
+          let fullText = '';
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            fullText += textContent.items.map(item => item.str).join(' ') + '\n';
+          }
+          setEditorContent(fullText);
+        } catch (error) {
+          console.error('Error processing PDF:', error);
+          alert(`Error processing PDF file: ${error.message}. Please try again or upload a different file.`);
+          setEditorContent('');
         }
-        setEditorContent(fullText);
       } else {
         alert('Unsupported file type. Please upload a .docx, .txt, or .pdf file.');
         setEditorContent('');

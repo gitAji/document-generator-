@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #F55;
-  --secondary-color: #55F;
-  --accent-color: #5F5;
-  --background-color: #F8F8F8;
-  --text-color: #333333;
-  --navbar-bg-color: #D00;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #28a745;
+  --background-color: #FFFFFF;
+  --text-color: #212529;
+  --navbar-bg-color: #F8F9FA;
   --danger-color: #dc3545; /* Keeping Bootstrap's default red for danger */
 }
 

@@ -188,7 +188,7 @@ function SpeakToWrite() {
           variant={isListening ? 'danger' : 'primary'}
           onClick={handleSpeakToggle}
           disabled={!isSpeechRecognitionReady}
-          className="d-flex align-items-center"
+          className="d-flex align-items-center px-4 py-2"
         >
           {isListening ? <><FaStop className="me-2" /> Stop Speaking</> : <><FaMicrophone className="me-2" /> Speak to Write</>}
         </Button>

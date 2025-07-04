@@ -11,8 +11,8 @@ function FooterComponent() {
           </Col>
           <Col md={6} className="text-center text-md-end">
             <p>
-              <a href="/" className="text-white me-2">Privacy Policy</a>
-              <a href="/" className="text-white">Terms of Service</a>
+              <a href="/privacy-policy" className="text-white me-2">Privacy Policy</a>
+              <a href="/terms-of-service" className="text-white">Terms of Service</a>
             </p>
           </Col>
         </Row>

@@ -157,7 +157,7 @@ ${hashtags}`;
     };
     const rgb = hexToRgb(selectedPalette[0]);
     const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-    const textColor = brightness > 125 ? '#000000' : '#FFFFFF';
+    const textColor = brightness > 125 ? 'var(--text-color)' : 'var(--background-color)';
 
     setAiThumbnailBackground(gradient);
     setAiThumbnailTextColor(textColor);

@@ -7,7 +7,14 @@ import 'react-quill/dist/quill.snow.css';
 import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 function YoutubeContentGenerator() {
+  const languages = [
+    { name: 'English', code: 'en-US' },
+    { name: 'Norsk', code: 'nb-NO' },
+    { name: 'Tamil', code: 'ta-IN' },
+    // Add more languages as needed
+  ];
   const [videoTitle, setVideoTitle] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0].code);
   const [isListening, setIsListening] = useState(false);
   const [isSpeechRecognitionReady, setIsSpeechRecognitionReady] = useState(false);
   const [generatedDescription, setGeneratedDescription] = useState('');
@@ -260,7 +267,22 @@ ${hashtags}`;
       <h2 className="mb-3">YouTube Content Generator</h2>
 
       <Row className="mb-3 align-items-end">
-        <Col md={12}>
+        <Col md={4}>
+          <Form.Group>
+            <Form.Label>Select Language</Form.Label>
+            <Form.Select
+              value={selectedLanguage}
+              onChange={(e) => setSelectedLanguage(e.target.value)}
+            >
+              {languages.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.name}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+        </Col>
+        <Col md={8}>
           <Form.Group>
             <Form.Label>Video Title (Speak or Type)</Form.Label>
             <div className="d-flex">
@@ -272,6 +294,7 @@ ${hashtags}`;
                 className="me-2"
               />
               <Button
+                style={{ backgroundColor: isListening ? 'var(--danger-color)' : 'var(--primary-color)', color: 'var(--background-color)' }}
                 variant={isListening ? 'danger' : 'primary'}
                 onClick={handleSpeakToggle}
                 disabled={!isSpeechRecognitionReady}
@@ -294,7 +317,7 @@ ${hashtags}`;
 
       <hr className="my-4" />
 
-      <Button onClick={generateContent} className="mb-4" disabled={!videoTitle} variant="primary">
+      <Button onClick={generateContent} className="mb-4" disabled={!videoTitle} style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary">
         Generate YouTube Content
       </Button>
 
@@ -308,10 +331,10 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="primary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
+          <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
             Copy Description
           </Button>
-          <Button variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedDescription, 'description')}>
+          <Button style={{ backgroundColor: 'var(--secondary-color)', color: 'var(--background-color)' }} variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedDescription, 'description')}>
             Export Description (.txt)
           </Button>
         </div>
@@ -327,10 +350,10 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="primary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
+          <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
             Copy Keywords
           </Button>
-          <Button variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedKeywords, 'keywords')}>
+          <Button style={{ backgroundColor: 'var(--secondary-color)', color: 'var(--background-color)' }} variant="secondary" size="sm" className="ms-2" onClick={() => handleExport(generatedKeywords, 'keywords')}>
             Export Keywords (.txt)
           </Button>
         </div>
@@ -425,7 +448,7 @@ ${hashtags}`;
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5wMy5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=)',
+            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5wMy5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZmZmIiAvPjwvc3ZnPj0)',
             opacity: 0.05,
           }}></div>
           <div style={{
@@ -443,7 +466,7 @@ ${hashtags}`;
         </div>
       )}
 
-      <Button variant="primary" onClick={handleGenerateThumbnail} disabled={!videoTitle} className="mb-4">
+      <Button style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }} variant="primary" onClick={handleGenerateThumbnail} disabled={!videoTitle} className="mb-4">
         Generate & Download Thumbnail
       </Button>
 

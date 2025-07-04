@@ -8,10 +8,26 @@ import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 function YoutubeContentGenerator() {
   const languages = [
-    { name: 'English', code: 'en-US' },
-    { name: 'Norsk', code: 'nb-NO' },
-    { name: 'Tamil', code: 'ta-IN' },
-    // Add more languages as needed
+    { name: 'English (US)', code: 'en-US' },
+    { name: 'Norsk (Norwegian)', code: 'nb-NO' },
+    { name: 'Tamil (India)', code: 'ta-IN' },
+    { name: 'Hindi (India)', code: 'hi-IN' },
+    { name: 'Spanish (Spain)', code: 'es-ES' },
+    { name: 'French (France)', code: 'fr-FR' },
+    { name: 'German (Germany)', code: 'de-DE' },
+    { name: 'Japanese (Japan)', code: 'ja-JP' },
+    { name: 'Chinese (Mandarin, Simplified)', code: 'zh-CN' },
+    { name: 'Russian (Russia)', code: 'ru-RU' },
+    { name: 'Arabic (Egypt)', code: 'ar-EG' },
+    { name: 'Portuguese (Brazil)', code: 'pt-BR' },
+    { name: 'Italian (Italy)', code: 'it-IT' },
+    { name: 'Korean (South Korea)', code: 'ko-KR' },
+    { name: 'Dutch (Netherlands)', code: 'nl-NL' },
+    { name: 'Swedish (Sweden)', code: 'sv-SE' },
+    { name: 'Polish (Poland)', code: 'pl-PL' },
+    { name: 'Turkish (Turkey)', code: 'tr-TR' },
+    { name: 'Vietnamese (Vietnam)', code: 'vi-VN' },
+    { name: 'Thai (Thailand)', code: 'th-TH' },
   ];
   const [videoTitle, setVideoTitle] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0].code);

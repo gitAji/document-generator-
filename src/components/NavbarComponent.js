@@ -21,6 +21,9 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/upload-edit" style={{ color: 'var(--text-color)' }}>
               Upload & Edit Document
             </Nav.Link>
+            <Nav.Link as={Link} to="/favicon-tool" style={{ color: 'var(--text-color)' }}>
+              Favicon Tool
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

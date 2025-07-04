@@ -8,6 +8,7 @@ import DocumentUploadEditor from './components/DocumentUploadEditor';
 import YoutubeContentGenerator from './components/YoutubeContentGenerator';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import FaviconTool from './components/FaviconTool';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; // Keep App.css for general styling if needed
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/youtube-generator" element={<YoutubeContentGenerator />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/favicon-tool" element={<FaviconTool />} />
         </Routes>
       </div>
       <FooterComponent />

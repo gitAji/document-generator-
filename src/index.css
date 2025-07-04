@@ -1,9 +1,20 @@
+:root {
+  --primary-color: #F55;
+  --secondary-color: #55F;
+  --accent-color: #5F5;
+  --background-color: #F8F8F8;
+  --text-color: #333333;
+  --navbar-bg-color: #D00;
+  --danger-color: #dc3545; /* Keeping Bootstrap's default red for danger */
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F5F5F5; /* Light Gray Background */
+  background-color: var(--background-color); /* Use CSS variable */
+  color: var(--text-color); /* Use CSS variable */
 }
 
 code {

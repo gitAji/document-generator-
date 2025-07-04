@@ -6,24 +6,24 @@ function Home() {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section text-center py-5 bg-primary text-white">
+      <section className="hero-section text-center py-5" style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)' }}>
         <Container>
           <h1>Welcome to Documents Generator</h1>
           <p className="lead">Your all-in-one solution for document creation, voice-to-text, and content generation.</p>
-          <Button variant="light" size="lg" as={Link} to="/speak-to-write">Get Started</Button>
+          <Button variant="secondary" size="lg" as={Link} to="/speak-to-write">Get Started</Button>
         </Container>
       </section>
 
       {/* Services Section */}
-      <section className="services-section py-5">
+      <section className="services-section py-5" style={{ backgroundColor: 'var(--background-color)' }}>
         <Container>
-          <h2 className="text-center mb-4">Our Services</h2>
+          <h2 className="text-center mb-4" style={{ color: 'var(--text-color)' }}>Our Services</h2>
           <Row className="g-4">
             <Col md={4}>
               <Card className="h-100 shadow-sm">
                 <Card.Body className="d-flex flex-column">
-                  <Card.Title>YouTube Content Generator</Card.Title>
-                  <Card.Text>
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>YouTube Content Generator</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
                     Generate descriptions, keywords, and AI-powered thumbnails for your YouTube videos.
                   </Card.Text>
                   <Button variant="primary" as={Link} to="/youtube-generator" className="mt-auto">Go to Service</Button>
@@ -33,8 +33,8 @@ function Home() {
             <Col md={4}>
               <Card className="h-100 shadow-sm">
                 <Card.Body className="d-flex flex-column">
-                  <Card.Title>Speak to Write</Card.Title>
-                  <Card.Text>
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Speak to Write</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
                     Convert your spoken words into editable text documents with ease.
                   </Card.Text>
                   <Button variant="primary" as={Link} to="/speak-to-write" className="mt-auto">Go to Service</Button>
@@ -44,8 +44,8 @@ function Home() {
             <Col md={4}>
               <Card className="h-100 shadow-sm">
                 <Card.Body className="d-flex flex-column">
-                  <Card.Title>Upload & Edit Document</Card.Title>
-                  <Card.Text>
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Upload & Edit Document</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
                     Upload PDF or other documents and edit them like a word processor.
                   </Card.Text>
                   <Button variant="primary" as={Link} to="/upload-edit" className="mt-auto">Go to Service</Button>
@@ -57,9 +57,9 @@ function Home() {
       </section>
 
       {/* Other Section */}
-      <section className="other-section py-5 bg-light">
+      <section className="other-section py-5" style={{ backgroundColor: 'var(--secondary-color)', color: 'var(--background-color)' }}>
         <Container>
-          <h2 className="text-center mb-4">Why Choose Us?</h2>
+          <h2 className="text-center mb-4" style={{ color: 'var(--background-color)' }}>Why Choose Us?</h2>
           <Row>
             <Col md={6}>
               <h3>Efficiency</h3>

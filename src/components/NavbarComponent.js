@@ -4,19 +4,21 @@ import { Link } from 'react-router-dom';
 
 function NavbarComponent() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm" style={{ backgroundColor: '#3700B3' }}>
+    <Navbar expand="lg" className="shadow-sm" style={{ backgroundColor: 'var(--navbar-bg-color)' }}>
       <Container>
-        <Navbar.Brand as={Link} to="/" style={{ color: '#FFFFFF', fontWeight: 'bold' }}>DocGen</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Brand as={Link} to="/" style={{ color: 'var(--background-color)', fontWeight: 'bold' }}>DocGen</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ borderColor: 'var(--background-color)' }}>
+          <span className="navbar-toggler-icon" style={{ filter: 'invert(1)' }}></span>
+        </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/youtube-generator" style={{ color: '#E0E0E0' }}>
+            <Nav.Link as={Link} to="/youtube-generator" style={{ color: 'var(--background-color)' }}>
               YouTube Content Generator
             </Nav.Link>
-            <Nav.Link as={Link} to="/speak-to-write" style={{ color: '#E0E0E0' }}>
+            <Nav.Link as={Link} to="/speak-to-write" style={{ color: 'var(--background-color)' }}>
               Speak to Write
             </Nav.Link>
-            <Nav.Link as={Link} to="/upload-edit" style={{ color: '#E0E0E0' }}>
+            <Nav.Link as={Link} to="/upload-edit" style={{ color: 'var(--background-color)' }}>
               Upload & Edit Document
             </Nav.Link>
           </Nav>

@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css'; // Import Quill's CSS
 import { saveAs } from 'file-saver';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 // Dummy templates for demonstration
 const templates = {
@@ -167,7 +168,7 @@ function SpeakToWrite() {
 
         {documentType !== 'Others' && templates[documentType] && (
           <Dropdown className="me-2">
-            <Dropdown.Toggle variant="secondary" id="dropdown-template">
+            <Dropdown.Toggle variant="outline-primary" id="dropdown-template">
               Select Template
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -184,11 +185,11 @@ function SpeakToWrite() {
         )}
 
         <Button
-          variant={isListening ? 'danger' : 'success'}
+          variant={isListening ? 'danger' : 'primary'}
           onClick={handleSpeakToggle}
           disabled={!isSpeechRecognitionReady}
         >
-          {isListening ? 'Stop Speaking' : 'Speak'}
+          {isListening ? <FaStop /> : <FaMicrophone />}
         </Button>
       </div>
 
@@ -206,10 +207,10 @@ function SpeakToWrite() {
       </div>
 
       <div className="mb-3 mt-5">
-        <Button variant="info" className="me-2" onClick={() => handleExport('txt')}>
+        <Button variant="primary" className="me-2" onClick={() => handleExport('txt')}>
           Export as .txt
         </Button>
-        <Button variant="info" onClick={() => handleExport('pdf')}>
+        <Button variant="primary" onClick={() => handleExport('pdf')}>
           Export as .pdf
         </Button>
       </div>

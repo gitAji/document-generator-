@@ -4,24 +4,10 @@ import { saveAs } from 'file-saver';
 import html2canvas from 'html2canvas';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
-const languages = [
-  { name: 'English (US)', code: 'en-US' },
-  { name: 'Hindi (India)', code: 'hi-IN' },
-  { name: 'Tamil (India)', code: 'ta-IN' },
-  { name: 'Bengali (India)', code: 'bn-IN' },
-  { name: 'Telugu (India)', code: 'te-IN' },
-  { name: 'Marathi (India)', code: 'mr-IN' },
-  { name: 'Gujarati (India)', code: 'gu-IN' },
-  { name: 'Kannada (India)', code: 'kn-IN' },
-  { name: 'Malayalam (India)', code: 'ml-IN' },
-  { name: 'Punjabi (India)', code: 'pa-IN' },
-  { name: 'Urdu (India)', code: 'ur-IN' },
-];
+import { FaMicrophone, FaStop } from 'react-icons/fa';
 
 function YoutubeContentGenerator() {
   const [videoTitle, setVideoTitle] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0].code);
   const [isListening, setIsListening] = useState(false);
   const [isSpeechRecognitionReady, setIsSpeechRecognitionReady] = useState(false);
   const [generatedDescription, setGeneratedDescription] = useState('');
@@ -47,7 +33,7 @@ function YoutubeContentGenerator() {
       recognitionInstance = new SpeechRecognition();
       recognitionInstance.continuous = false; // We only need a single utterance for the title
       recognitionInstance.interimResults = false;
-      recognitionInstance.lang = selectedLanguage;
+      
 
       recognitionInstance.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
@@ -76,7 +62,7 @@ function YoutubeContentGenerator() {
         recognitionInstance.stop();
       }
     };
-  }, [selectedLanguage]); // Re-initialize recognition when language changes
+  }, []);
 
   const handleSpeakToggle = () => {
     if (isListening) {
@@ -290,22 +276,7 @@ ${hashtags}`;
       <h2 className="mb-3">YouTube Content Generator</h2>
 
       <Row className="mb-3 align-items-end">
-        <Col md={4}>
-          <Form.Group>
-            <Form.Label>Select Language</Form.Label>
-            <Form.Select
-              value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-            >
-              {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.name}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-        </Col>
-        <Col md={8}>
+        <Col md={12}>
           <Form.Group>
             <Form.Label>Video Title (Speak or Type)</Form.Label>
             <div className="d-flex">
@@ -317,11 +288,11 @@ ${hashtags}`;
                 className="me-2"
               />
               <Button
-                variant={isListening ? 'danger' : 'primary'}
+                variant={isListening ? 'danger' : 'outline-primary'}
                 onClick={handleSpeakToggle}
                 disabled={!isSpeechRecognitionReady}
               >
-                {isListening ? 'Stop Speaking' : 'Speak'}
+                {isListening ? <FaStop /> : <FaMicrophone />}
               </Button>
             </div>
           </Form.Group>
@@ -339,9 +310,7 @@ ${hashtags}`;
 
       <hr className="my-4" />
 
-      
-
-      <Button onClick={generateContent} className="mb-4" disabled={!videoTitle}>
+      <Button onClick={generateContent} className="mb-4" disabled={!videoTitle} variant="primary">
         Generate YouTube Content
       </Button>
 
@@ -355,7 +324,7 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="outline-secondary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
+          <Button variant="outline-primary" size="sm" onClick={() => copyToClipboard(generatedDescription)}>
             Copy Description
           </Button>
           <Button variant="outline-info" size="sm" className="ms-2" onClick={() => handleExport(generatedDescription, 'description')}>
@@ -374,7 +343,7 @@ ${hashtags}`;
             readOnly
             className="mb-2"
           />
-          <Button variant="outline-secondary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
+          <Button variant="outline-primary" size="sm" onClick={() => copyToClipboard(generatedKeywords)}>
             Copy Keywords
           </Button>
           <Button variant="outline-info" size="sm" className="ms-2" onClick={() => handleExport(generatedKeywords, 'keywords')}>
@@ -490,7 +459,7 @@ ${hashtags}`;
         </div>
       )}
 
-      <Button variant="success" onClick={handleGenerateThumbnail} disabled={!videoTitle} className="mb-4">
+      <Button variant="primary" onClick={handleGenerateThumbnail} disabled={!videoTitle} className="mb-4">
         Generate & Download Thumbnail
       </Button>
 

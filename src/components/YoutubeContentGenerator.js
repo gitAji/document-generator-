@@ -56,7 +56,7 @@ function YoutubeContentGenerator() {
       recognitionInstance = new SpeechRecognition();
       recognitionInstance.continuous = false; // We only need a single utterance for the title
       recognitionInstance.interimResults = false;
-      
+      recognitionInstance.lang = selectedLanguage; // Set language here
 
       recognitionInstance.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
@@ -85,7 +85,7 @@ function YoutubeContentGenerator() {
         recognitionInstance.stop();
       }
     };
-  }, []);
+  }, [selectedLanguage]); // Re-initialize recognition when language changes
 
   const handleSpeakToggle = () => {
     if (isListening) {

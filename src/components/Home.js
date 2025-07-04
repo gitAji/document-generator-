@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section text-center py-5" style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', minHeight: '500px', display: 'flex', alignItems: 'center', backgroundImage: 'url(https://via.placeholder.com/1500x500?text=Hero+Image)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="hero-section text-center py-5" style={{ backgroundColor: 'var(--primary-color)', color: 'var(--background-color)', minHeight: '500px', display: 'flex', alignItems: 'center', backgroundImage: 'url(%PUBLIC_URL%/hero.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <Container>
           <h1>Welcome to Documents Generator</h1>
           <p className="lead">Your all-in-one solution for document creation, voice-to-text, and content generation.</p>

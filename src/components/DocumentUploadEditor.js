@@ -6,11 +6,10 @@ import mammoth from 'mammoth';
 import { saveAs } from 'file-saver';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import * as pdfjsLib from 'pdfjs-dist';
+import pdfToText from 'react-pdftotext';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@2.10.377/build/pdf.worker.min.js`;
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@2.10.377/build/pdf.worker.min.js`;
+
 
 
 function DocumentUploadEditor() {
@@ -43,16 +42,8 @@ function DocumentUploadEditor() {
         setEditorContent(textContent);
       } else if (file.type === 'application/pdf') {
         try {
-          const pdfData = new Uint8Array(arrayBuffer);
-          const loadingTask = pdfjsLib.getDocument({ data: pdfData });
-          const pdf = await loadingTask.promise;
-          let fullText = '';
-          for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const textContent = await page.getTextContent();
-            fullText += textContent.items.map(item => item.str).join(' ') + '\n';
-          }
-          setEditorContent(fullText);
+          const text = await pdfToText(file);
+          setEditorContent(text);
         } catch (error) {
           console.error('Error processing PDF:', error);
           alert(`Error processing PDF file: ${error.message}. Please try again or upload a different file.`);
@@ -140,7 +131,7 @@ function DocumentUploadEditor() {
           modules={modules}
           formats={formats}
           placeholder="Upload a document or type here..."
-          style={{ height: '600px' }}
+          style={{ height: '600px', overflowY: 'auto' }} // Added overflowY for scrollbar
         />
       </div>
 
@@ -153,6 +144,9 @@ function DocumentUploadEditor() {
         </Button>
         <Button variant="secondary" onClick={() => handleExport('docx')}>
           Export as .docx (Basic) 
+        </Button>
+        <Button variant="primary" className="ms-2" onClick={() => window.print()}>
+          Print Document
         </Button>
       </div>
     </Container>

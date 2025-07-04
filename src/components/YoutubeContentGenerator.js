@@ -112,29 +112,31 @@ function YoutubeContentGenerator() {
     const titleWords = titleLower.split(' ');
 
     // Enhanced simulated AI generation for description
-    let description = `${videoTitle} | ${channelName || 'Your Channel Name'}
+    let description = `Video Title: ${videoTitle} | Channel: ${channelName || 'Your Channel Name'}
 
-Welcome to ${channelName || 'Our Channel'}! In this video, we’ll dive deep into **${videoTitle}**. Learn about ${titleWords[0] || 'this topic'} and discover key insights into ${titleWords[1] || 'its applications'}. This guide will help you understand ${videoTitle} better.
+This video, in ${languages.find(lang => lang.code === selectedLanguage)?.name || 'your selected language'}, explores **${videoTitle}**. Discover key insights and practical tips. This guide will help you understand the topic better.
 
 Key Takeaways:
-- Understanding the basics of ${titleWords[0] || 'the subject'}
-- Exploring advanced concepts in ${titleWords[1] || 'the field'}
-- Practical tips for ${titleWords[2] || 'implementation'}
+- Core concepts of the subject
+- Advanced strategies and applications
+- Practical implementation tips
 
 For more content like this, subscribe to our channel!
 
 `;
 
     // Enhanced simulated AI generation for keywords
-    const baseKeywords = titleWords.join(', ');
+    const baseKeywords = videoTitle.split(' ').map(word => word.toLowerCase()).join(', ');
     const additionalKeywords = [
       `${videoTitle} tutorial`,
       `${videoTitle} guide`,
       `${videoTitle} explained`,
-      `${titleWords[0]} tips`,
-      `${titleWords[1]} strategies`,
-      `youtube content`,
-      `video creation`,
+      `how to ${videoTitle}`,
+      `best ${videoTitle}`,
+      `learn ${videoTitle}`,
+      `youtube seo`,
+      `content creation`,
+      `${languages.find(lang => lang.code === selectedLanguage)?.name || 'language'} content`,
     ].filter(Boolean).join(', ');
 
     const hashtags = titleWords.map(word => `#${word}`).join(' ');

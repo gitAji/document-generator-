@@ -117,6 +117,39 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm" style={{ backgroundColor: 'var(--background-color)' }}>
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>Font Generator for Social Media</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Create cool and unique fonts for captions, stories, and posts.
+                  </Card.Text>
+                  <Button variant="outline-primary" as={Link} to="/font-generator" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm" style={{ backgroundColor: 'var(--background-color)' }}>
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>URL Shortener with Tracking</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Shorten URLs for easier sharing on social media and track clicks.
+                  </Card.Text>
+                  <Button variant="outline-primary" as={Link} to="/url-shortener" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card className="h-100 shadow-sm" style={{ backgroundColor: 'var(--background-color)' }}>
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: 'var(--primary-color)' }}>TikTok Sound Trend Tracker</Card.Title>
+                  <Card.Text style={{ color: 'var(--text-color)' }}>
+                    Help influencers identify trending sounds on TikTok.
+                  </Card.Text>
+                  <Button variant="outline-primary" as={Link} to="/tiktok-sound-tracker" className="mt-auto">Go to Service</Button>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>

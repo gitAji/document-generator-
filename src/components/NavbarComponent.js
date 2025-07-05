@@ -32,6 +32,7 @@ function NavbarComponent() {
               <NavDropdown.Item as={Link} to="/youtube-generator">YouTube Content Generator</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/audio-trimmer">Audio Trimmer</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/youtube-thumbnail-analyzer">YouTube Thumbnail Analyzer</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/youtube-summarizer">YouTube Summarizer</NavDropdown.Item>
             </NavDropdown>
 
             {/* Social Media Tools */}

@@ -154,8 +154,8 @@ function SpeakToWrite() {
 
   return (
     <Container className="mt-4">
-      <div className="mb-3 d-flex align-items-center">
-        <Dropdown onSelect={(eventKey) => setDocumentType(eventKey)} className="me-2">
+      <div className="mb-3 d-flex align-items-center flex-wrap">
+        <Dropdown onSelect={(eventKey) => setDocumentType(eventKey)} className="me-2 mb-2">
           <Dropdown.Toggle variant="primary" id="dropdown-document-type">
             Document Type: {documentType}
           </Dropdown.Toggle>
@@ -167,7 +167,7 @@ function SpeakToWrite() {
         </Dropdown>
 
         {documentType !== 'Others' && templates[documentType] && (
-          <Dropdown className="me-2">
+          <Dropdown className="me-2 mb-2">
             <Dropdown.Toggle variant="secondary" id="dropdown-template">
               Select Template
             </Dropdown.Toggle>
@@ -188,7 +188,7 @@ function SpeakToWrite() {
           variant={isListening ? 'danger' : 'primary'}
           onClick={handleSpeakToggle}
           disabled={!isSpeechRecognitionReady}
-          className="d-flex align-items-center px-4 py-2 ms-auto"
+          className="d-flex align-items-center px-4 py-2 ms-auto mb-2"
         >
           {isListening ? <><FaStop className="me-2" /> Stop Speaking</> : <><FaMicrophone className="me-2" /> Speak to Write</>}
         </Button>

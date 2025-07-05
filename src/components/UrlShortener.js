@@ -16,21 +16,26 @@ function UrlShortener() {
     setAnalytics(null);
 
     try {
-      const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${longUrl}${customSlug ? `&single=${customSlug}` : ''}`);
-      const data = await response.json();
+      // This is a placeholder for a real URL shortening API.
+      // You would typically use a service like Bitly, Rebrandly, TinyURL, etc.
+      // For demonstration, we'll simulate a successful response.
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call delay
 
-      if (data.ok) {
-        setShortUrl(data.result.full_short_link);
-        setAnalytics({
-          clicks: Math.floor(Math.random() * 1000), // Still simulated
-          location: 'Global', // Still simulated
-          lastClicked: new Date().toLocaleString()
-        });
-      } else {
-        setError(data.error || 'Failed to shorten URL.');
+      if (!longUrl.startsWith('http://') && !longUrl.startsWith('https://')) {
+        setError('Please enter a valid URL starting with http:// or https://');
+        return;
       }
+
+      const generatedShortUrl = `https://short.url/${customSlug || Math.random().toString(36).substring(2, 8)}`;
+      setShortUrl(generatedShortUrl);
+      setAnalytics({
+        clicks: Math.floor(Math.random() * 1000),
+        location: 'Global',
+        lastClicked: new Date().toLocaleString()
+      });
+
     } catch (err) {
-      setError('Failed to connect to URL shortening service.');
+      setError('Failed to shorten URL. Please try again.');
       console.error(err);
     } finally {
       setLoading(false);

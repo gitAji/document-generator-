@@ -7,7 +7,7 @@ function NavbarComponent() {
   return (
     <Navbar expand="lg" className="shadow-sm" style={{ backgroundColor: 'var(--navbar-bg-color)' }}>
       <Container>
-        <Navbar.Brand as={Link} to="/" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>DocGen</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>TrendifyTools</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ borderColor: 'rgba(0,0,0,.1)' }}>
           <span className="navbar-toggler-icon" style={{ filter: 'none' }}></span>
         </Navbar.Toggle>

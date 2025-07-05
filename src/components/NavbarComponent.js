@@ -39,7 +39,7 @@ function NavbarComponent() {
               <NavDropdown.Item as={Link} to="/engagement-rate-calculator">Engagement Rate Calculator</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/font-generator">Font Generator for Social Media</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/url-shortener">URL Shortener with Tracking</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/tiktok-sound-tracker">TikTok Sound Trend Tracker</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/social-media-trend-analyzer">AI-Powered Trend Analysis Tool</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>

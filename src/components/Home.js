@@ -328,7 +328,7 @@ function Home() {
                   <Button
                     variant="outline-primary"
                     as={Link}
-                    to="/tiktok-sound-tracker"
+                    to="/social-media-trend-analyzer"
                     className="mt-auto"
                   >
                     Go to Service

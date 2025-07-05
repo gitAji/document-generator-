@@ -16,7 +16,7 @@ import YoutubeThumbnailAnalyzer from './components/YoutubeThumbnailAnalyzer';
 import EngagementRateCalculator from './components/EngagementRateCalculator';
 import FontGenerator from './components/FontGenerator';
 import UrlShortener from './components/UrlShortener';
-import TikTokSoundTrendTracker from './components/TikTokSoundTrendTracker';
+import SocialMediaTrendAnalyzer from './components/SocialMediaTrendAnalyzer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; // Keep App.css for general styling if needed
 
@@ -41,7 +41,7 @@ function App() {
             <Route path="/engagement-rate-calculator" element={<EngagementRateCalculator />} />
             <Route path="/font-generator" element={<FontGenerator />} />
             <Route path="/url-shortener" element={<UrlShortener />} />
-            <Route path="/tiktok-sound-tracker" element={<TikTokSoundTrendTracker />} />
+            <Route path="/social-media-trend-analyzer" element={<SocialMediaTrendAnalyzer />} />
           </Routes>
         </div>
         <FooterComponent />

@@ -9,6 +9,9 @@ function UrlShortener() {
   const [error, setError] = useState('');
   const [analytics, setAnalytics] = useState(null);
 
+  const SHORT_IO_API_KEY = 'sk_8gyCNv1ParPw6ONj'; // Your short.io API Key
+  const SHORT_IO_DOMAIN = 'your-short-domain.com'; // Replace with your short.io domain
+
   const handleShortenUrl = async () => {
     setLoading(true);
     setError('');
@@ -16,26 +19,42 @@ function UrlShortener() {
     setAnalytics(null);
 
     try {
-      // This is a placeholder for a real URL shortening API.
-      // You would typically use a service like Bitly, Rebrandly, TinyURL, etc.
-      // For demonstration, we'll simulate a successful response.
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call delay
-
-      if (!longUrl.startsWith('http://') && !longUrl.startsWith('https://')) {
-        setError('Please enter a valid URL starting with http:// or https://');
+      const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+      if (!urlRegex.test(longUrl)) {
+        setError('Please enter a valid URL (e.g., https://example.com).');
+        setLoading(false);
         return;
       }
 
-      const generatedShortUrl = `https://short.url/${customSlug || Math.random().toString(36).substring(2, 8)}`;
-      setShortUrl(generatedShortUrl);
-      setAnalytics({
-        clicks: Math.floor(Math.random() * 1000),
-        location: 'Global',
-        lastClicked: new Date().toLocaleString()
+      const response = await fetch('https://api.short.io/links', {
+        method: 'POST',
+        headers: {
+          'Authorization': SHORT_IO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          originalURL: longUrl,
+          domain: SHORT_IO_DOMAIN,
+          path: customSlug || undefined, // Use custom slug if provided
+        }),
       });
 
+      const data = await response.json();
+
+      if (response.ok) {
+        setShortUrl(data.shortURL);
+        // short.io provides analytics, but integrating them fully would require more complex setup.
+        // Keeping simulated analytics for demonstration.
+        setAnalytics({
+          clicks: Math.floor(Math.random() * 1000),
+          location: 'Global',
+          lastClicked: new Date().toLocaleString()
+        });
+      } else {
+        setError(data.message || 'Failed to shorten URL.');
+      }
     } catch (err) {
-      setError('Failed to shorten URL. Please try again.');
+      setError('Failed to connect to URL shortening service.');
       console.error(err);
     } finally {
       setLoading(false);

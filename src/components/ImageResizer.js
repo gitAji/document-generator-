@@ -150,16 +150,11 @@ function ImageResizer() {
             <Card className="shadow-sm mt-3 mt-md-0">
               <Card.Body className="text-center">
                 <Card.Title>Preview</Card.Title>
-                <img
-                  src={
-                    resizedImageUrl
-                      ? resizedImageUrl
-                      : URL.createObjectURL(imageFile)
-                  }
-                  alt="Preview"
-                  className="img-fluid"
-                  style={{ maxWidth: "100%", maxHeight: "400px" }}
-                />
+                {resizedImageUrl ? (
+                  <img src={resizedImageUrl} alt="Resized Preview" className="img-fluid" style={{ maxWidth: '100%', maxHeight: '400px' }} />
+                ) : (
+                  <img src={URL.createObjectURL(imageFile)} alt="Original Preview" className="img-fluid" style={{ maxWidth: '100%', maxHeight: '400px' }} />
+                )}
               </Card.Body>
             </Card>
           )}

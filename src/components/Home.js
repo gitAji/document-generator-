@@ -336,6 +336,30 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
+            <Col md={4}>
+              <Card
+                className="h-100 shadow-sm"
+                style={{ backgroundColor: "var(--background-color)" }}
+              >
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: "var(--primary-color)" }}>
+                    Facebook Content Generator
+                  </Card.Title>
+                  <Card.Text style={{ color: "var(--text-color)" }}>
+                    Scrape a public Facebook page's recent posts and let AI
+                    draft a new, original post inspired by what works.
+                  </Card.Text>
+                  <Button
+                    variant="outline-primary"
+                    as={Link}
+                    to="/facebook-content-generator"
+                    className="mt-auto"
+                  >
+                    Go to Service
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>

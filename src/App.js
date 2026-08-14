@@ -18,6 +18,7 @@ import FontGenerator from './components/FontGenerator';
 import UrlShortener from './components/UrlShortener';
 import SocialMediaTrendAnalyzer from './components/SocialMediaTrendAnalyzer';
 import YoutubeSummarizer from './components/YoutubeSummarizer';
+import FacebookContentGenerator from './components/FacebookContentGenerator';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; // Keep App.css for general styling if needed
 
@@ -44,6 +45,7 @@ function App() {
             <Route path="/url-shortener" element={<UrlShortener />} />
             <Route path="/social-media-trend-analyzer" element={<SocialMediaTrendAnalyzer />} />
             <Route path="/youtube-summarizer" element={<YoutubeSummarizer />} />
+            <Route path="/facebook-content-generator" element={<FacebookContentGenerator />} />
           </Routes>
         </div>
         <FooterComponent />

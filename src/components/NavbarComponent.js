@@ -41,6 +41,7 @@ function NavbarComponent() {
               <NavDropdown.Item as={Link} to="/font-generator">Font Generator for Social Media</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/url-shortener">URL Shortener with Tracking</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/social-media-trend-analyzer">AI-Powered Trend Analysis Tool</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/facebook-content-generator">Facebook Content Generator</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>

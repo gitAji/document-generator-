@@ -2,6 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Facebook Content Generator (Netlify Function)
+
+The `/facebook-content-generator` page scrapes a public Facebook page with the
+[Apify Facebook Posts Scraper](https://apify.com/apify/facebook-posts-scraper)
+Actor, then asks Anthropic's Claude API to draft a new, original post inspired
+by what's performing well on that page.
+
+Both API calls happen server-side in `netlify/functions/generate-post.js` so
+the Apify and Anthropic API keys never reach the browser. The React page calls
+it at the same-origin path `/api/generate-post`, which `netlify.toml`
+redirects to the function.
+
+### Local development
+
+1. Install the [Netlify CLI](https://docs.netlify.com/cli/get-started/): `npm install -g netlify-cli`
+2. Copy `.env.example` to `.env` and fill in `APIFY_API_TOKEN` and `ANTHROPIC_API_KEY`.
+3. Run `netlify dev` (instead of `npm start`) — it serves the CRA dev server
+   and the function together, proxying `/api/*` correctly.
+
+### Deploying
+
+Set `APIFY_API_TOKEN` and `ANTHROPIC_API_KEY` as environment variables in the
+Netlify dashboard (Site settings > Environment variables) before deploying —
+do not commit real keys to this repo.
+
 ## Available Scripts
 
 In the project directory, you can run:

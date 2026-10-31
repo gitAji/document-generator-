@@ -43,6 +43,11 @@ function NavbarComponent() {
               <NavDropdown.Item as={Link} to="/social-media-trend-analyzer">AI-Powered Trend Analysis Tool</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/facebook-content-generator">Facebook Content Generator</NavDropdown.Item>
             </NavDropdown>
+
+            {/* Games / Wellness */}
+            <NavDropdown title="Games" id="games-dropdown" menuVariant="light">
+              <NavDropdown.Item as={Link} to="/mind-relax-sounds">Mind Relax – Brain Rest Sounds</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Nav>
             <Nav.Link href="https://buymeacoffee.com/aone.no" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light ms-lg-3">

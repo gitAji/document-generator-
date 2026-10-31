@@ -360,6 +360,30 @@ function Home() {
                 </Card.Body>
               </Card>
             </Col>
+            <Col md={4}>
+              <Card
+                className="h-100 shadow-sm"
+                style={{ backgroundColor: "var(--background-color)" }}
+              >
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title style={{ color: "var(--primary-color)" }}>
+                    Mind Relax – Brain Rest Sounds
+                  </Card.Title>
+                  <Card.Text style={{ color: "var(--text-color)" }}>
+                    Calming tones, binaural beats, and soft noise to help kids
+                    (and grown-ups) take a peaceful break and reset.
+                  </Card.Text>
+                  <Button
+                    variant="outline-primary"
+                    as={Link}
+                    to="/mind-relax-sounds"
+                    className="mt-auto"
+                  >
+                    Go to Service
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </section>
